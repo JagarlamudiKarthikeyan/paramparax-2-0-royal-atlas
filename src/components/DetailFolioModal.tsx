@@ -69,7 +69,7 @@ export const DetailFolioModal: React.FC<DetailFolioModalProps> = ({
               {isProduct ? 'Artisan Atelier Provenance' : 'Imperial Heritage Folio'}
             </span>
             <span>·</span>
-            <span>{isProduct ? `GI-${product.giTagLocation}` : (heritage.accessionNumber || 'ACC.IND.2026')}</span>
+            <span>{isProduct ? `Craft listing · ${product.giTagLocation}` : 'Cultural heritage record'}</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -109,11 +109,22 @@ export const DetailFolioModal: React.FC<DetailFolioModalProps> = ({
               <div className="relative border-4 border-[#C5A059]/50 shadow-md overflow-hidden rounded-xs bg-[#EAE0CD]">
                 <img
                   src={item.imageUrl}
-                  alt={item.title}
+                  alt={isProduct ? product.title : heritage.imageAlt}
                   referrerPolicy="no-referrer"
                   className="w-full h-64 md:h-72 object-cover transition-transform duration-500 group-hover:scale-102"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                {!isProduct && heritage.imageCredit && heritage.imageCreditUrl && (
+                  <a
+                    href={heritage.imageCreditUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={(event) => event.stopPropagation()}
+                    className="absolute bottom-2 right-2 max-w-[72%] truncate text-[9px] text-white bg-black/70 px-1.5 py-1 rounded-xs hover:underline"
+                  >
+                    {heritage.imageCredit}
+                  </a>
+                )}
                 
                 {/* Visual Stamp Accent */}
                 <div className="absolute bottom-2.5 left-2.5 bg-[#FAF6EE]/90 backdrop-blur-xs px-2 py-1 border border-[#C5A059] rounded-xs text-[10px] font-mono text-[#6B1724] uppercase tracking-wider">
@@ -158,14 +169,16 @@ export const DetailFolioModal: React.FC<DetailFolioModalProps> = ({
                     {isProduct ? product.craftTechnique : heritage.eraOrEpoch}
                   </span>
                 </div>
-                <div>
-                  <span className="text-[#8C7A6B] block">
-                    {isProduct ? 'Craft Duration:' : 'Preservation Status:'}
-                  </span>
-                  <span className="font-medium text-[#1C1814]">
-                    {isProduct ? product.timeToCraft : heritage.preservationStatus}
-                  </span>
-                </div>
+                {(isProduct || heritage.preservationStatus) && (
+                  <div>
+                    <span className="text-[#8C7A6B] block">
+                      {isProduct ? 'Craft Duration:' : 'Heritage designation:'}
+                    </span>
+                    <span className="font-medium text-[#1C1814]">
+                      {isProduct ? product.timeToCraft : heritage.preservationStatus}
+                    </span>
+                  </div>
+                )}
                 {heritage.coordinates && (
                   <div>
                     <span className="text-[#8C7A6B] block">Coordinates:</span>
@@ -258,6 +271,28 @@ export const DetailFolioModal: React.FC<DetailFolioModalProps> = ({
               </div>
             )}
 
+            {!isProduct && heritage.sources && heritage.sources.length > 0 && (
+              <section className="pt-3 border-t border-[#C5A059]/30 space-y-2" aria-label="Sources and image credits">
+                <h4 className="font-royal text-xs font-semibold text-[#6B1724] uppercase tracking-wider">
+                  Sources & image credits
+                </h4>
+                <ul className="space-y-1">
+                  {heritage.sources.map((source) => (
+                    <li key={source.url}>
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs text-[#5C4D42] underline underline-offset-2 decoration-[#C5A059] hover:text-[#6B1724]"
+                      >
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
           </div>
 
         </div>
@@ -265,7 +300,7 @@ export const DetailFolioModal: React.FC<DetailFolioModalProps> = ({
         {/* Folio Bottom Footer */}
         <div className="px-6 py-3 bg-[#F3EBDD] border-t border-[#C5A059]/40 flex items-center justify-between text-xs text-[#735D4E]">
           <span className="font-editorial italic">
-            ParamparaX Living Heritage Archives · Unaltered Indian Dynastic Traditions
+            ParamparaX Cultural Atlas · Sources linked where available
           </span>
           <button
             onClick={onClose}
