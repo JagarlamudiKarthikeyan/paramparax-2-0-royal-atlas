@@ -292,12 +292,92 @@
   color: #B18A4A;
   font-size: 0.72rem;
 }
-@media (min-width: 640px) and (max-width: 1023px) {
+@media (max-width: 1023px) {
   .chakra-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-areas: "core core core";
-    grid-auto-rows: minmax(88px, auto);
+    display: block;
+    width: min(100%, 680px);
+    aspect-ratio: 1;
+    margin-inline: auto;
   }
+  .chakra-grid::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    width: 78%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border: 1px dashed rgba(177, 138, 74, 0.62);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(177,138,74,0.08) 0 55%, transparent 56%);
+    pointer-events: none;
+  }
+  .chakra-core {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: clamp(128px, 33vw, 224px);
+    height: auto;
+    min-height: 0;
+    transform: translate(-50%, -50%);
+  }
+  .chakra-wheel {
+    width: clamp(82px, 22vw, 150px);
+  }
+  .chakra-topic {
+    position: absolute;
+    left: var(--orbit-x);
+    top: var(--orbit-y);
+    width: clamp(78px, 16vw, 109px);
+    height: clamp(54px, 8.8vw, 64px);
+    min-height: 0;
+    padding: 0.3rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.12rem;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+  .chakra-topic:hover,
+  .chakra-topic:focus-visible {
+    transform: translate(-50%, calc(-50% - 2px));
+  }
+  .chakra-topic-index {
+    flex: 0 0 auto;
+    width: 1.05rem;
+    height: 1.05rem;
+    font-size: 0.58rem;
+  }
+  .chakra-topic-copy {
+    display: block;
+    width: 100%;
+  }
+  .chakra-topic-sanskrit,
+  .chakra-topic-description,
+  .chakra-topic-arrow {
+    display: none;
+  }
+  .chakra-topic-copy strong {
+    display: block;
+    font-size: clamp(0.56rem, 1.75vw, 0.7rem);
+    line-height: 1.06;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+  .chakra-topic--nw { --orbit-x: 26%; --orbit-y: 11%; }
+  .chakra-topic--n1 { --orbit-x: 50%; --orbit-y: 8%; }
+  .chakra-topic--n2 { --orbit-x: 74%; --orbit-y: 11%; }
+  .chakra-topic--ne { --orbit-x: 88%; --orbit-y: 27%; }
+  .chakra-topic--e1 { --orbit-x: 88%; --orbit-y: 50%; }
+  .chakra-topic--e2 { --orbit-x: 88%; --orbit-y: 73%; }
+  .chakra-topic--se { --orbit-x: 74%; --orbit-y: 89%; }
+  .chakra-topic--s2 { --orbit-x: 50%; --orbit-y: 92%; }
+  .chakra-topic--s1 { --orbit-x: 26%; --orbit-y: 89%; }
+  .chakra-topic--sw { --orbit-x: 12%; --orbit-y: 73%; }
+  .chakra-topic--w2 { --orbit-x: 12%; --orbit-y: 50%; }
+  .chakra-topic--w1 { --orbit-x: 12%; --orbit-y: 27%; }
 }
 @media (min-width: 1024px) {
   .chakra-grid {
