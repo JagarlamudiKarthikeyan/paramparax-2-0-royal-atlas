@@ -13,6 +13,16 @@ export const TEXTILE_IMAGE = '/src/assets/images/paramparax_artisan_textile_1794
 export const KAILASA_IMAGE = '/src/assets/images/paramparax_kailasa_heritage_1794124444260.jpg';
 export const THANJAVUR_IMAGE = '/src/assets/images/paramparax_thanjavur_gold_craft_1794124443060.jpg';
 
+// Documentary photographs from Wikimedia Commons. Each file page below carries
+// the creator, license, and reuse terms shown in the site’s image-credit links.
+export const ORCHHA_IMAGE = 'https://commons.wikimedia.org/wiki/Special:FilePath/Chhatris_on_the_bank_of_Betwa_river.jpg?width=1280';
+export const UNAKOTI_IMAGE = 'https://commons.wikimedia.org/wiki/Special:FilePath/Unakoti-4.jpg?width=1280';
+export const GANDIKOTA_IMAGE = 'https://commons.wikimedia.org/wiki/Special:FilePath/A_sunset_view_of_Gandikota_canyon_River_Pennar_Andhra_Pradesh_India.jpg?width=1280';
+export const SHEKHAWATI_IMAGE = 'https://commons.wikimedia.org/wiki/Special:FilePath/Shekhawati_painted_houses.jpg?width=1280';
+export const CHETTINAD_IMAGE = 'https://commons.wikimedia.org/wiki/Special:FilePath/Chettinad_house_courtyard.jpg?width=1280';
+export const MAJULI_MASK_IMAGE = 'https://commons.wikimedia.org/wiki/Special:FilePath/Mask_of_Samaguri_Satra.jpg?width=1280';
+export const BHIMBETKA_IMAGE = 'https://commons.wikimedia.org/wiki/Special:FilePath/Rock_painting_Bhimbetka.jpg?width=1280';
+
 export const CHAPTERS: ChapterMeta[] = [
   {
     id: 'home',
@@ -150,17 +160,24 @@ export const OVERLOOKED_DESTINATIONS: HeritageItem[] = [
     chapter: 'destinations',
     title: 'Orchha Riverfront Chhatris',
     vernacularTitle: 'ओरछा के राजसी छत्र',
-    subtitle: '16th-Century Bundela Cenotaphs along Betwa River',
+    subtitle: 'Bundela memorial pavilions beside the Betwa River',
     region: 'Central',
     location: 'Niwari District',
     state: 'Madhya Pradesh',
     coordinates: '25.3524° N, 78.6427° E',
-    eraOrEpoch: '16th–17th Century Bundela Dynasty',
-    significance: 'Fourteen monumental spire-domed cenotaphs perched on rugged granite boulders, reflecting perfectly on the mirror surface of the holy Betwa river at twilight.',
-    curatorialNotes: 'Built under Bundelkhand sovereigns including Bir Singh Deo. Unlike Mughal tombs which enclose mausoleums, these Chhatris are commemorative memorial pavilions engineered with lofty multi-tiered Shikharas that fuse Rajput military bastions with classical temple vimanas.',
-    preservationStatus: 'UNESCO Inscribed',
-    imageUrl: HERO_IMAGE,
-    imageAlt: 'Cenotaphs of Orchha glowing along the riverbank at sunset',
+    eraOrEpoch: '16th–17th-century Bundela period',
+    significance: 'A group of chhatris (cenotaphs) stands beside the Betwa River as part of Orchha’s historic townscape. The wider historic ensemble brings together monuments, temples, gardens and the river landscape.',
+    curatorialNotes: 'Orchha was founded in the 16th century by Bundela chief Rudra Pratap Singh. Its historic ensemble is on UNESCO’s Tentative List, submitted in 2019; it is not inscribed on the World Heritage List.',
+    preservationStatus: 'UNESCO Tentative List',
+    imageUrl: ORCHHA_IMAGE,
+    imageAlt: 'The Orchha chhatris on the bank of the Betwa River, Madhya Pradesh',
+    imageCredit: 'Photo: Vadaykeviv · CC BY-SA 3.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Chhatris_on_the_bank_of_Betwa_river.jpg',
+    sources: [
+      { label: 'UNESCO Tentative List: The historic ensemble of Orchha', url: 'https://whc.unesco.org/en/tentativelists/6404/' },
+      { label: 'UNESCO clarification on Orchha’s World Heritage status', url: 'https://www.unesco.org/en/articles/note-clarification' },
+      { label: 'Image and license details: Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:Chhatris_on_the_bank_of_Betwa_river.jpg' }
+    ],
     tags: ['Architecture', 'Cenotaph', 'Riverfront', 'Bundelkhand'],
     accessionNumber: 'ACC.MP.DEST.014',
     featured: true
@@ -170,17 +187,23 @@ export const OVERLOOKED_DESTINATIONS: HeritageItem[] = [
     chapter: 'destinations',
     title: 'Unakoti Colossal Rock Carvings',
     vernacularTitle: 'ঊনকোটি মহাতীর্থ',
-    subtitle: 'Mysterious 9th-Century Bas-Relief Shaivite Sculptures',
+    subtitle: 'Rock-cut Shaiva sculptures, stylistically dated to the 8th–9th century CE',
     region: 'Northeast',
     location: 'Kailashahar Hills',
     state: 'Tripura',
-    coordinates: '24.3218° N, 92.0125° E',
-    eraOrEpoch: '8th–9th Century CE',
-    significance: 'Over three dozen gigantic rock-cut bas-reliefs carved directly into the lush subtropical sandstone gorge, centered around the 30-foot head of Unakotiswara Kal Bhairava.',
-    curatorialNotes: 'Folklore recounts that Lord Shiva and one crore (10 million) deities were traveling to Kashi. The deities overslept their dawn departure; enraged, Shiva cursed them to remain as petrified rock faces forever, leaving precisely "one less than a crore" (Unakoti).',
-    preservationStatus: 'Vulnerable',
-    imageUrl: KAILASA_IMAGE,
-    imageAlt: 'Rock-carved colossal relief face in dense rainforest canyon',
+    eraOrEpoch: 'Stylistically dated to the 8th–9th century CE',
+    significance: 'The forested hillside bears rock-cut panels and freestanding stone images of Hindu deities, including a monumental Shiva head and Ganesha figures.',
+    curatorialNotes: 'Unakoti is a Shaiva pilgrimage site. Local tradition explains the name through a story of Shiva and a crore of deities; the story is folklore, not an archaeological count of the sculptures.',
+    preservationStatus: 'UNESCO Tentative List',
+    imageUrl: UNAKOTI_IMAGE,
+    imageAlt: 'Rock-cut sculptures and reliefs at Unakoti, Tripura',
+    imageCredit: 'Photo: Sanjibroy56 · CC BY-SA 4.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Unakoti-4.jpg',
+    sources: [
+      { label: 'UNESCO Tentative List: Rock-cut sculptures and reliefs of Unakoti', url: 'https://whc.unesco.org/en/tentativelists/6628/' },
+      { label: 'Unakoti Heritage Site: Unakoti District Administration', url: 'https://unakoti.nic.in/tourist-place/unakoti-heritage-site/' },
+      { label: 'Image and license details: Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:Unakoti-4.jpg' }
+    ],
     tags: ['Rock-Cut', 'Rainforest', 'Shaivism', 'Tripura'],
     accessionNumber: 'ACC.TR.DEST.038',
     featured: true
@@ -195,12 +218,17 @@ export const OVERLOOKED_DESTINATIONS: HeritageItem[] = [
     location: 'Kadapa District',
     state: 'Andhra Pradesh',
     coordinates: '14.8144° N, 78.2863° E',
-    eraOrEpoch: '12th–16th Century Vijayanagara Vassals',
-    significance: 'A dramatic 300-foot chasm carved by the Pennar River through red Erramala sandstone ridges, crowned by an impenetrable 10-kilometer stone rampart.',
-    curatorialNotes: 'Seat of the Pemmasani Nayakas who served as commander generals for Vijayanagara. The fort houses the intricately sculpted Madhavaraya temple with carved celestial nymphs and a colossal vaulted granary that held rations during seven-year sieges.',
-    preservationStatus: 'Thriving',
-    imageUrl: HERO_IMAGE,
-    imageAlt: 'Steep red sandstone canyon gorge with ancient stone bastion at sunset',
+    eraOrEpoch: 'Medieval hill fort; 13th-century origins are reported by the district',
+    significance: 'The hill fort overlooks the Pennar River gorge and the Erramala hills. The fort precinct includes temples, a Jama Masjid, a granary and a pigeon tower.',
+    curatorialNotes: 'Kadapa District’s tourism account describes the fort’s history and its temples, mosque, granary and pigeon tower. The landscape and built remains reflect the layered history of the site.',
+    imageUrl: GANDIKOTA_IMAGE,
+    imageAlt: 'The Pennar River gorge at Gandikota, Andhra Pradesh',
+    imageCredit: 'Photo: solarisgirl · CC BY-SA 2.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:A_sunset_view_of_Gandikota_canyon_River_Pennar_Andhra_Pradesh_India.jpg',
+    sources: [
+      { label: 'Gandikota: YSR Kadapa District Administration', url: 'https://kadapa.ap.gov.in/tourist-place/gandikota/' },
+      { label: 'Image and license details: Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:A_sunset_view_of_Gandikota_canyon_River_Pennar_Andhra_Pradesh_India.jpg' }
+    ],
     tags: ['Canyon', 'Fortress', 'Pennar River', 'Nayaka Heritage'],
     accessionNumber: 'ACC.AP.DEST.089',
     featured: true
@@ -210,17 +238,22 @@ export const OVERLOOKED_DESTINATIONS: HeritageItem[] = [
     chapter: 'destinations',
     title: 'Shekhawati Painted Havelis',
     vernacularTitle: 'शेखावाटी की रंगीन हवेलियाँ',
-    subtitle: 'The World’s Largest Open-Air Fresco Gallery',
+    subtitle: 'Painted merchant havelis across the Shekhawati region',
     region: 'West',
     location: 'Mandawa & Nawalgarh',
     state: 'Rajasthan',
     coordinates: '27.8105° N, 75.1485° E',
     eraOrEpoch: '18th–early 20th Century Marwari Guilds',
-    significance: 'Hundreds of palatial mercantile mansions entirely covered inside and out with mineral and vegetable-pigment murals depicting epics, steam locomotives, and royal courts.',
-    curatorialNotes: 'Marwari merchant families returning from coastal trade hubs commissioned local chitera painters to plaster walls in Araish (crushed sea-shell and egg tempera lime wash). Pigments were sourced from lapis lazuli, lamp black, vermilion, and malachite.',
-    preservationStatus: 'Endangered',
-    imageUrl: THANJAVUR_IMAGE,
-    imageAlt: 'Ornate painted arches and courtyard frescoes of Nawalgarh haveli',
+    significance: 'Rajasthan Tourism highlights the havelis of towns including Mandawa and Nawalgarh, where frescoes depict religious, social and changing modern subjects.',
+    curatorialNotes: 'Shekhawati is a region of towns and painted havelis, rather than one single open-air gallery. The buildings and paintings differ by place and period.',
+    imageUrl: SHEKHAWATI_IMAGE,
+    imageAlt: 'Painted houses in the Shekhawati region of Rajasthan',
+    imageCredit: 'Photo: Ahron de Leeuw · CC BY 2.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Shekhawati_painted_houses.jpg',
+    sources: [
+      { label: 'Shekhawati: Rajasthan Tourism', url: 'https://www.tourism.rajasthan.gov.in/content/rajasthan-tourism/en/tourist-destinations/shekhawati.html' },
+      { label: 'Image and license details: Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:Shekhawati_painted_houses.jpg' }
+    ],
     tags: ['Murals', 'Havelis', 'Fresco', 'Marwari Culture'],
     accessionNumber: 'ACC.RJ.DEST.112'
   },
@@ -229,17 +262,22 @@ export const OVERLOOKED_DESTINATIONS: HeritageItem[] = [
     chapter: 'destinations',
     title: 'Chettinad Heritage Mansions',
     vernacularTitle: 'செட்டிநாடு பாரம்பரிய வீடுகள்',
-    subtitle: 'Teak Pillars, Belgian Glass & Athangudi Tile Estates',
+    subtitle: 'Merchant mansions across the Chettinad region of Tamil Nadu',
     region: 'South',
     location: 'Karaikudi Region',
     state: 'Tamil Nadu',
     coordinates: '10.0734° N, 78.7732° E',
     eraOrEpoch: '19th–Early 20th Century Nattukottai Chettiars',
-    significance: 'Grand sprawling 100-room family fortresses constructed with Burmese teak colonnades, Italian marble, and handmade floral oxide Athangudi tiles.',
-    curatorialNotes: 'Engineered with climate-responsive dual courtyards (Kalyana Kottagai and Valavu) that funneled cool drafts during dry coastal summers. The lime plaster wall coating, called Chettinad egg-white plaster, retains an enamel glaze that feels cool to the palm after 150 years.',
-    preservationStatus: 'Vulnerable',
-    imageUrl: TEXTILE_IMAGE,
-    imageAlt: 'Massive carved teak courtyard pillars and patterned geometric floor tiles',
+    significance: 'Sivaganga District identifies prominent Chettinad houses in Karaikudi, Pallathur, Athangudi and Kothamangalam. The region’s houses are known for their distinctive architectural character.',
+    curatorialNotes: 'Chettinad mansions vary from house to house. This overview describes the regional tradition without assigning every material or architectural feature to every building.',
+    imageUrl: CHETTINAD_IMAGE,
+    imageAlt: 'Courtyard of a Chettinad house in Tamil Nadu',
+    imageCredit: 'Photo: Yashima · CC BY-SA 2.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Chettinad_house_courtyard.jpg',
+    sources: [
+      { label: 'Places of interest: Sivaganga District Administration', url: 'https://sivaganga.nic.in/tourism/places-of-interest/' },
+      { label: 'Image and license details: Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:Chettinad_house_courtyard.jpg' }
+    ],
     tags: ['Vernacular', 'Chettinad', 'Woodcraft', 'Architecture'],
     accessionNumber: 'ACC.TN.DEST.073'
   },
@@ -248,36 +286,48 @@ export const OVERLOOKED_DESTINATIONS: HeritageItem[] = [
     chapter: 'destinations',
     title: 'Majuli Vaishnavite Satras',
     vernacularTitle: 'মাজুলীৰ সত্ৰীয়া সংস্কৃতি',
-    subtitle: 'The Sacred River Island of the Brahmaputra',
+    subtitle: 'Vaishnavite satras and mask-making traditions in the Brahmaputra',
     region: 'Northeast',
     location: 'Jorhat / Majuli District',
     state: 'Assam',
     coordinates: '26.9500° N, 94.2167° E',
     eraOrEpoch: '15th-Century Neo-Vaishnavite Movement',
-    significance: 'The world’s largest inhabited river island, cradle of Srimanta Sankardev’s monastic culture, famous for bamboo-and-clay theatrical masks and Sattriya dance.',
-    curatorialNotes: 'At the Chamaguri Satra, monks hand-craft multi-layered dynamic masks (Mukha) of Ravana, Garuda, and Narasimha using split river bamboo, terracotta silt from the Brahmaputra bank, cow dung binder, and vegetable dyes. Performers articulate eyelids and jaws with hidden twine.',
-    preservationStatus: 'Endangered',
-    imageUrl: TEXTILE_IMAGE,
-    imageAlt: 'Bamboo mask of Garuda drying in monastic courtyard on Majuli island',
+    significance: 'Assam Tourism describes Majuli as a centre of Neo-Vaishnavite culture and identifies its satras, mask-making, bhaona theatre and dance traditions.',
+    curatorialNotes: 'Assam Tourism identifies Samaguri Satra as a centre for traditional mask-making. The masks are used in bhaona, a form of religious theatre; materials and techniques can vary by maker and mask.',
+    imageUrl: MAJULI_MASK_IMAGE,
+    imageAlt: 'A mask at Samaguri Satra in Majuli, Assam',
+    imageCredit: 'Photo: Nayan j Nath · CC BY-SA 4.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Mask_of_Samaguri_Satra.jpg',
+    sources: [
+      { label: 'Majuli Island: Assam Tourism', url: 'https://assamtourism.gov.in/Majuli-Island.php' },
+      { label: 'Satras of Assam: Assam Tourism', url: 'https://assamtourism.gov.in/Satras-of-Assam.php' },
+      { label: 'Image and license details: Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:Mask_of_Samaguri_Satra.jpg' }
+    ],
     tags: ['River Island', 'Mask Craft', 'Vaishnavism', 'Brahmaputra'],
     accessionNumber: 'ACC.AS.DEST.045'
   },
   {
     id: 'dest-bhimbetka',
     chapter: 'destinations',
-    title: 'Bhimbetka Paleolithic Shelters',
+    title: 'Bhimbetka Rock Shelters',
     vernacularTitle: 'भीमबेटका शैलचित्र',
-    subtitle: '30,000-Year-Old Ochre Paintings in Vindhyan Sandstone',
+    subtitle: 'Rock art spanning the Mesolithic through historic periods',
     region: 'Central',
     location: 'Raisen District',
     state: 'Madhya Pradesh',
     coordinates: '22.9372° N, 77.6133° E',
-    eraOrEpoch: 'Paleolithic to Mesolithic (c. 10,000 BCE)',
-    significance: 'Over 750 rock shelters nestled in dense teak and sal forests featuring vivid ochre, manganese, and white depictions of bison hunts, shamans, and war chariots.',
-    curatorialNotes: 'The pigments, mixed from hematite, animal fat, plant latex, and lime, have bonded chemically into the porous sandstone matrix, surviving millennia of monsoon rains and tropical sunlight without fading.',
-    preservationStatus: 'UNESCO Inscribed',
-    imageUrl: KAILASA_IMAGE,
-    imageAlt: 'Ochre painted wild boar and human stick figures on cave wall',
+    eraOrEpoch: 'Paintings date from the Mesolithic through historic periods',
+    significance: 'UNESCO describes five clusters of natural shelters in sandstone outcrops, with paintings that appear to date from the Mesolithic through the historic period. Bhimbetka was inscribed on the World Heritage List in 2003.',
+    curatorialNotes: 'The paintings at Bhimbetka span more than one period; they should not all be presented as 30,000 years old. UNESCO also notes the cultural traditions of nearby villages in its account of the site.',
+    preservationStatus: 'UNESCO World Heritage Site (inscribed 2003)',
+    imageUrl: BHIMBETKA_IMAGE,
+    imageAlt: 'Prehistoric rock painting at the Bhimbetka rock shelters, Madhya Pradesh',
+    imageCredit: 'Photo: Nandanupadhyay · CC BY-SA 3.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Rock_painting_Bhimbetka.jpg',
+    sources: [
+      { label: 'Rock Shelters of Bhimbetka: UNESCO World Heritage Centre', url: 'https://whc.unesco.org/en/list/925/' },
+      { label: 'Image and license details: Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:Rock_painting_Bhimbetka.jpg' }
+    ],
     tags: ['Paleolithic', 'Prehistoric', 'Ochre', 'UNESCO'],
     accessionNumber: 'ACC.MP.DEST.002'
   }

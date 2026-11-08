@@ -45,9 +45,12 @@ export interface HeritageItem {
   eraOrEpoch: string;
   significance: string;
   curatorialNotes: string;
-  preservationStatus: 'Thriving' | 'Vulnerable' | 'Endangered' | 'UNESCO Inscribed';
+  preservationStatus?: string;
   imageUrl: string;
   imageAlt: string;
+  imageCredit?: string;
+  imageCreditUrl?: string;
+  sources?: { label: string; url: string }[];
   tags: string[];
   accessionNumber: string;
   featured?: boolean;

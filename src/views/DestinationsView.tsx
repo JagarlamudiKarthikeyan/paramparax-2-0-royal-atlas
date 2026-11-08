@@ -117,7 +117,7 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
               >
                 <img
                   src={dest.imageUrl}
-                  alt={dest.title}
+                  alt={dest.imageAlt}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-104"
                 />
@@ -145,11 +145,23 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
                   </button>
                 </div>
 
-                {/* Coordinates & Accession Number */}
+                {dest.imageCredit && dest.imageCreditUrl && (
+                  <a
+                    href={dest.imageCreditUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={(event) => event.stopPropagation()}
+                    className="absolute bottom-11 right-2.5 max-w-[72%] truncate text-[9px] text-white bg-black/70 px-1.5 py-1 rounded-xs hover:underline"
+                  >
+                    {dest.imageCredit}
+                  </a>
+                )}
+
+                {/* Coordinates & Atlas reference */}
                 <div className="absolute bottom-2.5 left-2.5 right-2.5 text-[#FAF6EE] flex items-end justify-between">
                   <div>
                     <span className="text-[10px] font-mono text-[#C5A059] block">
-                      {dest.accessionNumber}
+                      Atlas entry
                     </span>
                     <span className="font-serif font-bold text-xs text-white">
                       {dest.vernacularTitle}
@@ -188,9 +200,11 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
                 </div>
 
                 <div className="pt-3 border-t border-[#C5A059]/20 flex items-center justify-between text-xs">
-                  <span className="text-[11px] text-[#8C7A6B] font-mono">
-                    Status: {dest.preservationStatus}
-                  </span>
+                  {dest.preservationStatus && (
+                    <span className="text-[11px] text-[#8C7A6B] font-mono">
+                      {dest.preservationStatus}
+                    </span>
+                  )}
 
                   <button
                     onClick={() => onSelectItem(dest)}
