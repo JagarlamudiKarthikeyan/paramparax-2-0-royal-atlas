@@ -1,0 +1,6 @@
+{
+  "name": "ParamparaX 2.0",
+  "description": "A royal Indian cultural discovery atlas and artisan storefront featuring overlooked destinations, performing arts, folklore, wellness, and living crafts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
