@@ -197,7 +197,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               Find Your Way Through the Atlas
             </h2>
             <p className="font-editorial text-base sm:text-lg text-[#5C4D42] italic">
-              Choose a topic around the chakra to enter its chapter and discover a new thread of India’s living heritage.
+              A radiant Sudarshan-inspired chakra anchors the atlas. Choose a chapter around it to follow a thread of India’s living heritage.
             </p>
           </div>
 
@@ -205,34 +205,18 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="chakra-core" aria-label="ParamparaX Royal Atlas chakra">
               <div className="chakra-wheel">
                 <svg viewBox="0 0 100 100" role="img" aria-labelledby="chakra-wheel-title">
-                  <title id="chakra-wheel-title">A twenty-four-spoked heritage chakra</title>
-                  <circle className="chakra-wheel-ring" cx="50" cy="50" r="44" />
-                  <circle className="chakra-wheel-ring chakra-wheel-ring--inner" cx="50" cy="50" r="31" />
-                  <line key="spoke-0" x1="50" y1="9" x2="50" y2="27" transform="rotate(0 50 50)" />
-              <line key="spoke-1" x1="50" y1="9" x2="50" y2="27" transform="rotate(15 50 50)" />
-              <line key="spoke-2" x1="50" y1="9" x2="50" y2="27" transform="rotate(30 50 50)" />
-              <line key="spoke-3" x1="50" y1="9" x2="50" y2="27" transform="rotate(45 50 50)" />
-              <line key="spoke-4" x1="50" y1="9" x2="50" y2="27" transform="rotate(60 50 50)" />
-              <line key="spoke-5" x1="50" y1="9" x2="50" y2="27" transform="rotate(75 50 50)" />
-              <line key="spoke-6" x1="50" y1="9" x2="50" y2="27" transform="rotate(90 50 50)" />
-              <line key="spoke-7" x1="50" y1="9" x2="50" y2="27" transform="rotate(105 50 50)" />
-              <line key="spoke-8" x1="50" y1="9" x2="50" y2="27" transform="rotate(120 50 50)" />
-              <line key="spoke-9" x1="50" y1="9" x2="50" y2="27" transform="rotate(135 50 50)" />
-              <line key="spoke-10" x1="50" y1="9" x2="50" y2="27" transform="rotate(150 50 50)" />
-              <line key="spoke-11" x1="50" y1="9" x2="50" y2="27" transform="rotate(165 50 50)" />
-              <line key="spoke-12" x1="50" y1="9" x2="50" y2="27" transform="rotate(180 50 50)" />
-              <line key="spoke-13" x1="50" y1="9" x2="50" y2="27" transform="rotate(195 50 50)" />
-              <line key="spoke-14" x1="50" y1="9" x2="50" y2="27" transform="rotate(210 50 50)" />
-              <line key="spoke-15" x1="50" y1="9" x2="50" y2="27" transform="rotate(225 50 50)" />
-              <line key="spoke-16" x1="50" y1="9" x2="50" y2="27" transform="rotate(240 50 50)" />
-              <line key="spoke-17" x1="50" y1="9" x2="50" y2="27" transform="rotate(255 50 50)" />
-              <line key="spoke-18" x1="50" y1="9" x2="50" y2="27" transform="rotate(270 50 50)" />
-              <line key="spoke-19" x1="50" y1="9" x2="50" y2="27" transform="rotate(285 50 50)" />
-              <line key="spoke-20" x1="50" y1="9" x2="50" y2="27" transform="rotate(300 50 50)" />
-              <line key="spoke-21" x1="50" y1="9" x2="50" y2="27" transform="rotate(315 50 50)" />
-              <line key="spoke-22" x1="50" y1="9" x2="50" y2="27" transform="rotate(330 50 50)" />
-              <line key="spoke-23" x1="50" y1="9" x2="50" y2="27" transform="rotate(345 50 50)" />
-                  <circle className="chakra-wheel-hub" cx="50" cy="50" r="6" />
+                  <title id="chakra-wheel-title">A Sudarshan-inspired divine chakra with twenty-four radiant blades</title>
+                  <circle className="chakra-wheel-ring chakra-wheel-ring--outer" cx="50" cy="50" r="40" />
+                  {Array.from({ length: 24 }, (_, index) => (
+                    <g key={`chakra-blade-${index}`} transform={`rotate(${index * 15} 50 50)`}>
+                      <path className="chakra-blade" d="M50 2 L54 11 L52 15 L50 12 L48 15 L46 11 Z" />
+                      <line x1="50" y1="17" x2="50" y2="34" />
+                    </g>
+                  ))}
+                  <circle className="chakra-wheel-ring chakra-wheel-ring--inner" cx="50" cy="50" r="34" />
+                  <circle className="chakra-wheel-ring chakra-wheel-ring--hub" cx="50" cy="50" r="14" />
+                  <circle className="chakra-wheel-hub" cx="50" cy="50" r="8" />
+                  <circle className="chakra-wheel-hub-center" cx="50" cy="50" r="3" />
                 </svg>
               </div>
               <span className="chakra-core-title">PARAMPARAX</span>
@@ -245,13 +229,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 type="button"
                 onClick={() => onSelectChapter(chap.id)}
                 className={`chakra-topic chakra-topic--${CHAKRA_TOPIC_SLOTS[chap.id]}`}
-                aria-label={`Open ${chap.title}: ${chap.englishKicker}`}
+                aria-label={`Open ${chap.title}: ${chap.description}`}
               >
                 <span className="chakra-topic-index">{String(chap.index).padStart(2, '0')}</span>
                 <span className="chakra-topic-copy">
                   <span className="chakra-topic-sanskrit">{chap.sanskritSubtitle}</span>
                   <strong>{chap.title}</strong>
-                  <span className="chakra-topic-description">{chap.description}</span>
+                  <span className="chakra-topic-description">{chap.englishKicker}</span>
                 </span>
                 <span className="chakra-topic-arrow" aria-hidden="true">↗</span>
               </button>
