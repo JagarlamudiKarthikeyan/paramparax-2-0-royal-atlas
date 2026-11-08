@@ -29,6 +29,24 @@ interface HomeViewProps {
   onOpenSearch: () => void;
 }
 
+
+
+const CHAKRA_TOPIC_SLOTS: Record<ChapterId, string> = {
+  home: 'core',
+  gallery: 'nw',
+  shop: 'n1',
+  destinations: 'n2',
+  performing_arts: 'ne',
+  festivals: 'e1',
+  languages: 'e2',
+  folklore: 'se',
+  wildlife: 's2',
+  archaeology: 's1',
+  ayurveda: 'sw',
+  artisans: 'w2',
+  reflections: 'w1'
+};
+
 export const HomeView: React.FC<HomeViewProps> = ({
   onSelectChapter,
   onSelectItem,
@@ -166,60 +184,83 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Chapter Portals Grid - 12 Expeditions */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
-          <div className="flex items-center justify-center gap-2 text-xs font-mono text-[#8C7A6B]">
-            <span className="text-[#C5A059] font-serif font-bold text-sm">द्वादश अध्याय</span>
-            <span>·</span>
-            <span className="text-[#6B1724] uppercase tracking-widest font-semibold">Twelve Living Chapters</span>
-          </div>
-          <h2 className="font-royal text-2xl sm:text-3xl font-bold text-[#6B1724]">
-            Horizontal Atlas Expeditions
-          </h2>
-          <p className="font-editorial text-base text-[#5C4D42] italic">
-            Each chapter unfolds as an independent horizontal travel folio. Select any portal to glide directly into that heritage domain.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {CHAPTERS.filter(c => c.id !== 'home').map((chap) => (
-            <div
-              key={chap.id}
-              onClick={() => onSelectChapter(chap.id)}
-              className="group p-5 bg-[#FAF6EE] hover:bg-[#F3EBDD] border border-[#C5A059]/40 hover:border-[#C5A059] rounded-xs shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between"
-            >
-              <div className="space-y-2.5">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-mono text-[#8C7A6B] text-[11px]">
-                    CHAPTER {String(chap.index + 1).padStart(2, '0')}
-                  </span>
-                  <span className="font-serif text-[#C5A059] font-bold text-xs">
-                    {chap.sanskritSubtitle}
-                  </span>
-                </div>
-
-                <h3 className="font-royal text-base font-bold text-[#6B1724] group-hover:text-[#58111C] transition-colors">
-                  {chap.title}
-                </h3>
-
-                <p className="text-xs text-[#5C4D42] line-clamp-3 leading-relaxed font-sans">
-                  {chap.description}
-                </p>
-              </div>
-
-              <div className="pt-4 mt-4 border-t border-[#C5A059]/20 flex items-center justify-between text-xs font-medium text-[#6B1724]">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[#8C7A6B] group-hover:text-[#6B1724]">
-                  Open Chapter
-                </span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#C5A059] group-hover:translate-x-1 transition-transform" />
-              </div>
+      {/* Twelve Living Chapters — Heritage Chakra Navigator */}
+      <section className="chakra-section border-y border-[#C5A059]/30 py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto space-y-3 mb-8 sm:mb-12">
+            <div className="flex items-center justify-center gap-2 text-xs font-mono text-[#8C7A6B]">
+              <span className="text-[#C5A059] font-serif font-bold text-sm">द्वादश अध्याय</span>
+              <span aria-hidden="true">·</span>
+              <span className="text-[#6B1724] uppercase tracking-widest font-semibold">Twelve Living Chapters</span>
             </div>
-          ))}
-        </div>
+            <h2 className="font-royal text-2xl sm:text-3xl lg:text-4xl font-bold text-[#6B1724]">
+              Find Your Way Through the Atlas
+            </h2>
+            <p className="font-editorial text-base sm:text-lg text-[#5C4D42] italic">
+              Choose a topic around the chakra to enter its chapter and discover a new thread of India’s living heritage.
+            </p>
+          </div>
 
+          <div className="chakra-grid" role="group" aria-label="Twelve ParamparaX heritage chapters">
+            <div className="chakra-core" aria-label="ParamparaX Royal Atlas chakra">
+              <div className="chakra-wheel">
+                <svg viewBox="0 0 100 100" role="img" aria-labelledby="chakra-wheel-title">
+                  <title id="chakra-wheel-title">A twenty-four-spoked heritage chakra</title>
+                  <circle className="chakra-wheel-ring" cx="50" cy="50" r="44" />
+                  <circle className="chakra-wheel-ring chakra-wheel-ring--inner" cx="50" cy="50" r="31" />
+                  <line key="spoke-0" x1="50" y1="9" x2="50" y2="27" transform="rotate(0 50 50)" />
+              <line key="spoke-1" x1="50" y1="9" x2="50" y2="27" transform="rotate(15 50 50)" />
+              <line key="spoke-2" x1="50" y1="9" x2="50" y2="27" transform="rotate(30 50 50)" />
+              <line key="spoke-3" x1="50" y1="9" x2="50" y2="27" transform="rotate(45 50 50)" />
+              <line key="spoke-4" x1="50" y1="9" x2="50" y2="27" transform="rotate(60 50 50)" />
+              <line key="spoke-5" x1="50" y1="9" x2="50" y2="27" transform="rotate(75 50 50)" />
+              <line key="spoke-6" x1="50" y1="9" x2="50" y2="27" transform="rotate(90 50 50)" />
+              <line key="spoke-7" x1="50" y1="9" x2="50" y2="27" transform="rotate(105 50 50)" />
+              <line key="spoke-8" x1="50" y1="9" x2="50" y2="27" transform="rotate(120 50 50)" />
+              <line key="spoke-9" x1="50" y1="9" x2="50" y2="27" transform="rotate(135 50 50)" />
+              <line key="spoke-10" x1="50" y1="9" x2="50" y2="27" transform="rotate(150 50 50)" />
+              <line key="spoke-11" x1="50" y1="9" x2="50" y2="27" transform="rotate(165 50 50)" />
+              <line key="spoke-12" x1="50" y1="9" x2="50" y2="27" transform="rotate(180 50 50)" />
+              <line key="spoke-13" x1="50" y1="9" x2="50" y2="27" transform="rotate(195 50 50)" />
+              <line key="spoke-14" x1="50" y1="9" x2="50" y2="27" transform="rotate(210 50 50)" />
+              <line key="spoke-15" x1="50" y1="9" x2="50" y2="27" transform="rotate(225 50 50)" />
+              <line key="spoke-16" x1="50" y1="9" x2="50" y2="27" transform="rotate(240 50 50)" />
+              <line key="spoke-17" x1="50" y1="9" x2="50" y2="27" transform="rotate(255 50 50)" />
+              <line key="spoke-18" x1="50" y1="9" x2="50" y2="27" transform="rotate(270 50 50)" />
+              <line key="spoke-19" x1="50" y1="9" x2="50" y2="27" transform="rotate(285 50 50)" />
+              <line key="spoke-20" x1="50" y1="9" x2="50" y2="27" transform="rotate(300 50 50)" />
+              <line key="spoke-21" x1="50" y1="9" x2="50" y2="27" transform="rotate(315 50 50)" />
+              <line key="spoke-22" x1="50" y1="9" x2="50" y2="27" transform="rotate(330 50 50)" />
+              <line key="spoke-23" x1="50" y1="9" x2="50" y2="27" transform="rotate(345 50 50)" />
+                  <circle className="chakra-wheel-hub" cx="50" cy="50" r="6" />
+                </svg>
+              </div>
+              <span className="chakra-core-title">PARAMPARAX</span>
+              <span className="chakra-core-caption">The Royal Atlas · Vol. II</span>
+            </div>
+
+            {CHAPTERS.filter(chap => chap.id !== 'home').map((chap) => (
+              <button
+                key={chap.id}
+                type="button"
+                onClick={() => onSelectChapter(chap.id)}
+                className={`chakra-topic chakra-topic--${CHAKRA_TOPIC_SLOTS[chap.id]}`}
+                aria-label={`Open ${chap.title}: ${chap.englishKicker}`}
+              >
+                <span className="chakra-topic-index">{String(chap.index).padStart(2, '0')}</span>
+                <span className="chakra-topic-copy">
+                  <span className="chakra-topic-sanskrit">{chap.sanskritSubtitle}</span>
+                  <strong>{chap.title}</strong>
+                  <span className="chakra-topic-description">{chap.description}</span>
+                </span>
+                <span className="chakra-topic-arrow" aria-hidden="true">↗</span>
+              </button>
+            ))}
+          </div>
+        </div>
       </section>
+
+
 
       {/* Curated Highlights: Overlooked Dynastic Wonders */}
       <section className="bg-[#F3EBDD]/60 py-12 border-y border-[#C5A059]/30">

@@ -135,3 +135,202 @@
   background: #C5A059;
   border-radius: 9999px;
 }
+
+
+/* ParamparaX heritage chakra navigation */
+.chakra-section {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(197, 160, 89, 0.12), transparent 36%),
+    linear-gradient(180deg, #FAF6EE 0%, #F3EBDD 100%);
+}
+.chakra-grid {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "core core";
+  grid-auto-rows: minmax(118px, auto);
+  gap: 0.75rem;
+}
+.chakra-core {
+  grid-area: core;
+  justify-self: center;
+  align-self: center;
+  z-index: 2;
+  width: min(72vw, 286px);
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(197, 160, 89, 0.72);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 38%, #fffdf8 0 35%, #F3EBDD 75%, #E9D9BC 100%);
+  box-shadow: 0 18px 46px rgba(61, 28, 24, 0.12), inset 0 0 0 8px rgba(255,255,255,0.48);
+}
+.chakra-wheel {
+  width: clamp(112px, 34vw, 174px);
+  aspect-ratio: 1;
+  color: #6B1724;
+}
+.chakra-wheel svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.chakra-wheel-ring {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.chakra-wheel-ring--inner {
+  stroke: #C5A059;
+  stroke-width: 1.35;
+}
+.chakra-wheel svg line {
+  stroke: #C5A059;
+  stroke-width: 1.35;
+  stroke-linecap: round;
+}
+.chakra-wheel-hub {
+  fill: #6B1724;
+  stroke: #C5A059;
+  stroke-width: 2;
+}
+.chakra-core-title {
+  color: #6B1724;
+  font: 700 0.74rem/1.1 var(--font-royal);
+  letter-spacing: 0.18em;
+}
+.chakra-core-caption {
+  color: #735D4E;
+  font: italic 0.7rem/1.2 var(--font-editorial);
+}
+.chakra-topic {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  min-height: 118px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(197, 160, 89, 0.48);
+  border-radius: 0.25rem;
+  background: rgba(255, 253, 248, 0.82);
+  color: #382D26;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 5px 16px rgba(61, 28, 24, 0.045);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+.chakra-topic:hover,
+.chakra-topic:focus-visible {
+  transform: translateY(-3px);
+  border-color: #6B1724;
+  background: #FFFCF5;
+  box-shadow: 0 12px 25px rgba(61, 28, 24, 0.12);
+  outline: none;
+}
+.chakra-topic:focus-visible {
+  outline: 3px solid rgba(197, 160, 89, 0.7);
+  outline-offset: 3px;
+}
+.chakra-topic-index {
+  flex: 0 0 1.65rem;
+  width: 1.65rem;
+  height: 1.65rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(197, 160, 89, 0.78);
+  border-radius: 50%;
+  color: #6B1724;
+  font: 600 0.7rem/1 var(--font-editorial);
+}
+.chakra-topic-copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.2rem;
+}
+.chakra-topic-sanskrit {
+  color: #9A7040;
+  font: 500 0.68rem/1.2 var(--font-editorial);
+}
+.chakra-topic-copy strong {
+  color: #6B1724;
+  font: 700 0.88rem/1.15 var(--font-royal);
+}
+.chakra-topic-description {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #735D4E;
+  font-size: 0.66rem;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.chakra-topic-arrow {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: #C5A059;
+  font-size: 0.8rem;
+}
+@media (min-width: 1024px) {
+  .chakra-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(136px, auto));
+    grid-template-areas:
+      "nw n1 n2 ne"
+      "w1 core core e1"
+      "w2 core core e2"
+      "sw s1 s2 se";
+    gap: 0.85rem;
+  }
+  .chakra-grid::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    width: min(48%, 560px);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(197, 160, 89, 0.44);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(197,160,89,0.06) 0 47%, transparent 47.5% 68%, rgba(107,23,36,0.035) 68.5% 69%, transparent 69.5%);
+    pointer-events: none;
+  }
+  .chakra-core {
+    width: min(100%, 290px);
+    height: auto;
+    min-height: 100%;
+    aspect-ratio: 1;
+  }
+  .chakra-wheel {
+    width: clamp(138px, 14vw, 178px);
+  }
+  .chakra-topic {
+    width: 100%;
+    max-width: 245px;
+    min-height: 116px;
+    align-self: center;
+    justify-self: center;
+  }
+  .chakra-topic--nw { grid-area: nw; }
+  .chakra-topic--n1 { grid-area: n1; }
+  .chakra-topic--n2 { grid-area: n2; }
+  .chakra-topic--ne { grid-area: ne; }
+  .chakra-topic--e1 { grid-area: e1; }
+  .chakra-topic--e2 { grid-area: e2; }
+  .chakra-topic--se { grid-area: se; }
+  .chakra-topic--s2 { grid-area: s2; }
+  .chakra-topic--s1 { grid-area: s1; }
+  .chakra-topic--sw { grid-area: sw; }
+  .chakra-topic--w2 { grid-area: w2; }
+  .chakra-topic--w1 { grid-area: w1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chakra-topic { transition: none; }
+}
