@@ -340,7 +340,7 @@ export default function App() {
                 </span>
               </div>
               <p className="font-editorial text-sm italic text-[#735D4E]">
-                The Royal Indian Cultural Discovery Atlas & Certified Artisan Storefront.
+                A cultural discovery atlas of historic places, art forms, stories and craft traditions.
               </p>
             </div>
 
@@ -377,9 +377,7 @@ export default function App() {
               © 2026 ParamparaX Cultural Initiative. Dedicated to the living heritage, epigraphs, and master artisans of Bharatvarsha.
             </p>
             <div className="flex items-center gap-3">
-              <span>Node Server: Online · Port 3000</span>
-              <span aria-hidden="true">·</span>
-              <span>All Crafts GI Authenticated</span>
+              <span>Selected records link their research and image sources</span>
             </div>
           </div>
         </div>

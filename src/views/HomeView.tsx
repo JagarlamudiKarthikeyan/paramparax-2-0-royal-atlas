@@ -15,10 +15,8 @@ import {
 } from 'lucide-react';
 import { ChapterId, HeritageItem } from '../types';
 import { 
-  HERO_IMAGE, 
-  TEXTILE_IMAGE, 
-  KAILASA_IMAGE, 
-  THANJAVUR_IMAGE, 
+  ORCHHA_IMAGE,
+  MAJULI_MASK_IMAGE, 
   CHAPTERS, 
   OVERLOOKED_DESTINATIONS 
 } from '../data/culturalData';
@@ -94,9 +92,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               {/* Curatorial Prose Excerpt */}
               <p className="text-sm leading-relaxed text-[#382D26] font-sans">
-                India is not a static museum of marble ruins, but a breathing continuum. Across 30,000 years of ochre cave art, resonant granite pillars that sing with heptatonic scales, and the seventeen-stage indigo resist blocks of Kutch, ParamparaX 2.0 documents living traditions directly alongside the certified custodians who inherit them.
+                Explore India’s cultural landscapes through historic places, living traditions and community knowledge. At Bhimbetka, UNESCO describes rock paintings spanning from the Mesolithic period through historic times.{' '}
+                <a href="https://whc.unesco.org/en/list/925/" target="_blank" rel="noreferrer" className="underline underline-offset-2 decoration-[#C5A059]">Read UNESCO’s site record</a>.
               </p>
-
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <button
@@ -128,15 +126,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <div className="pt-4 border-t border-[#C5A059]/30 flex flex-wrap items-center gap-6 text-xs text-[#735D4E]">
                 <div className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#0F4C3A]" />
-                  <span>100% Authentic GI Tag Crafts</span>
+                  <span>Historic places</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Award className="w-4 h-4 text-[#C5A059]" />
-                  <span>Padma Shri & Master Guild Lineages</span>
+                  <span>Living traditions</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <HeartHandshake className="w-4 h-4 text-[#6B1724]" />
-                  <span>Direct Artisan Honorariums</span>
+                  <span>Craft communities</span>
                 </div>
               </div>
 
@@ -153,8 +151,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                 <div className="relative overflow-hidden rounded-xs aspect-4/3 sm:aspect-16/10 bg-[#EAE0CD]">
                   <img
-                    src={HERO_IMAGE}
-                    alt="Royal sandstone corridor overlooking sacred ghats with manuscript maps and brass diya lamps"
+                    src={ORCHHA_IMAGE}
+                    alt="The Orchha chhatris on the bank of the Betwa River, Madhya Pradesh"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                   />
@@ -163,17 +161,17 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   {/* Curatorial Label Badge */}
                   <div className="absolute bottom-3 left-3 right-3 text-[#FAF6EE] space-y-0.5">
                     <span className="text-[10px] font-mono uppercase tracking-widest text-[#C5A059] block">
-                      Plate No. 01 · Riverfront Pavilion at Dusk
+                      Orchha · Chhatris beside the Betwa River
                     </span>
                     <h3 className="font-royal text-sm sm:text-base font-bold text-white drop-shadow-xs">
-                      Maheshwar & Orchha Heritage Corridors
+                      Orchha Riverfront Chhatris
                     </h3>
                   </div>
                 </div>
 
                 <div className="mt-2 text-center">
                   <p className="text-[11px] font-editorial italic text-[#735D4E]">
-                    Archival accession from the Bundela & Holkar dynastic chronicles.
+                    <a href="https://commons.wikimedia.org/wiki/File:Chhatris_on_the_bank_of_Betwa_river.jpg" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-[#6B1724]">Photo: Vadaykeviv · CC BY-SA 3.0</a>
                   </p>
                 </div>
               </div>
@@ -283,13 +281,24 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 <div className="relative h-48 overflow-hidden bg-[#EAE0CD]">
                   <img
                     src={dest.imageUrl}
-                    alt={dest.title}
+                    alt={dest.imageAlt}
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
                   />
                   <div className="absolute top-2.5 right-2.5 bg-[#FAF6EE]/90 backdrop-blur-xs px-2 py-0.5 rounded-xs border border-[#C5A059]/40 text-[10px] font-mono text-[#6B1724]">
                     {dest.region}
                   </div>
+                  {dest.imageCredit && dest.imageCreditUrl && (
+                    <a
+                      href={dest.imageCreditUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(event) => event.stopPropagation()}
+                      className="absolute bottom-2 right-2 max-w-[72%] truncate text-[9px] text-white bg-black/70 px-1.5 py-1 rounded-xs hover:underline"
+                    >
+                      {dest.imageCredit}
+                    </a>
+                  )}
                   <div className="absolute bottom-2 left-2 text-[10px] font-serif font-bold text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded-xs">
                     {dest.vernacularTitle}
                   </div>
@@ -314,7 +323,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                   <div className="pt-3 border-t border-[#C5A059]/20 flex items-center justify-between text-xs text-[#6B1724] font-medium">
                     <span className="text-[11px] font-mono uppercase tracking-wider text-[#8C7A6B]">
-                      {dest.accessionNumber}
+                      Atlas entry
                     </span>
                     <span className="flex items-center gap-1 group-hover:underline">
                       Inspect Folio <ArrowRight className="w-3 h-3 text-[#C5A059]" />
@@ -337,37 +346,42 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="lg:col-span-5 relative">
               <div className="border-2 border-[#C5A059]/60 rounded-xs overflow-hidden shadow-sm bg-[#EAE0CD]">
                 <img
-                  src={TEXTILE_IMAGE}
-                  alt="Master artisan block printing natural indigo onto fabric"
+                  src={MAJULI_MASK_IMAGE}
+                  alt="A mask at Samaguri Satra in Majuli, Assam"
                   referrerPolicy="no-referrer"
                   className="w-full h-64 sm:h-80 object-cover"
                 />
               </div>
-              <div className="absolute -bottom-3 -right-3 bg-[#6B1724] text-[#FAF6EE] p-3 border border-[#C5A059] rounded-xs shadow-md text-xs font-royal">
-                <span>9 Generations</span>
-                <span className="block text-[10px] text-[#C5A059] font-mono">Dhamadka Lineage</span>
-              </div>
+              <a
+                href="https://commons.wikimedia.org/wiki/File:Mask_of_Samaguri_Satra.jpg"
+                target="_blank"
+                rel="noreferrer"
+                className="absolute -bottom-3 -right-3 bg-[#6B1724] text-[#FAF6EE] p-3 border border-[#C5A059] rounded-xs shadow-md text-xs font-royal hover:underline"
+              >
+                Photo credit
+                <span className="block text-[10px] text-[#C5A059] font-mono">Nayan j Nath · CC BY-SA 4.0</span>
+              </a>
             </div>
 
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-2 text-xs font-mono text-[#8C7A6B]">
                 <span className="text-[#6B1724] font-bold uppercase tracking-widest">
-                  Atelier Custodian Spotlight
+                  Craft tradition spotlight
                 </span>
                 <span>·</span>
                 <span>Living Heritage Keepers</span>
               </div>
 
               <h2 className="font-royal text-2xl sm:text-3xl font-bold text-[#6B1724]">
-                Dr. Ismail Mohammed Khatri & The Ajrakh Revival
+                Samaguri Satra’s Mukha Mask Tradition
               </h2>
 
               <p className="font-editorial text-base text-[#5C4D42] italic">
-                "Ajrakh is not merely cloth; it is the rhythm of desert river water, winter sunlight, and natural botanical ferment."
+                Masks from Samaguri Satra are used in bhaona, a form of Assamese religious theatre.
               </p>
 
               <p className="text-xs sm:text-sm text-[#382D26] leading-relaxed">
-                Working in Ajrakhpur, Kutch, Dr. Khatri and his sons practice the sixteen-step resist printing method using hand-carved teak wood blocks, wild indigo, madder root, hardee, and tamarind seed gum. ParamparaX works directly with certified GI artisans to preserve their lineage and provide sustainable royal patronages.
+                Assam Tourism identifies Samaguri Satra as a centre for traditional mask-making. Majuli’s satras preserve mask-making, bhaona theatre and other Neo-Vaishnavite traditions. <a href="https://assamtourism.gov.in/Satras-of-Assam.php" target="_blank" rel="noreferrer" className="underline underline-offset-2 decoration-[#C5A059]">Read Assam Tourism’s account</a>.
               </p>
 
               <div className="pt-2 flex flex-wrap gap-3">
@@ -375,14 +389,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   onClick={() => onSelectChapter('artisans')}
                   className="px-4 py-2 bg-[#6B1724] hover:bg-[#58111C] text-[#FAF6EE] font-medium text-xs rounded-sm border border-[#C5A059] cursor-pointer shadow-xs transition-colors"
                 >
-                  Read Master Artisan Profiles
+                  Explore maker traditions
                 </button>
 
                 <button
-                  onClick={() => onSelectChapter('shop')}
+                  onClick={() => onSelectChapter('destinations')}
                   className="px-4 py-2 bg-[#F3EBDD] hover:bg-[#EAE0CD] text-[#6B1724] font-medium text-xs rounded-sm border border-[#C5A059]/40 cursor-pointer transition-colors"
                 >
-                  View Ajrakh Silk Saree in Shop
+                  Explore featured heritage places
                 </button>
               </div>
 
